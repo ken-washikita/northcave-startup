@@ -9,6 +9,9 @@ sed -i 's/ja_JP/en_US/' /etc/locale.conf
 # PAM
 sed -i 's/^UsePAM no/UsePAM yes/' /etc/ssh/sshd_config
 
+# logrotate
+sed -i 's/^rotate 4$/rotate 10/' /etc/logrotate.conf
+
 # vi
 cat <<EOL >/root/.vimrc
 set compatible
