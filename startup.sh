@@ -1,16 +1,5 @@
 #!/bin/bash
 
-# @sacloud-name "Northcave Setup"
-# @sacloud-once
-#
-# @sacloud-require-archive distro-centos distro-ver-7.*
-#
-# @sacloud-desc-begin
-#   Linuxサーバを自分好みに設定します。
-
-#   ※ このスクリプトは、CentOS7.Xで動作します
-# @sacloud-desc-end
-
 # install packages
 yum -y install wget yum-utils python-inotify || exit 1
 
@@ -39,6 +28,7 @@ EOL
 sed -i '/^map q/s/$/\r/' /root/.vimrc
 
 # filter slice messages
+# https://access.redhat.com/ja/solutions/2601461
 cat <<EOL >/etc/rsyslog.d/ignore-systemd-session-slice.conf
 if \$programname == "systemd" and (\$msg contains "Starting Session" or \$msg contains "Started Session" or \$msg contains "Created slice" or \$msg contains "Starting user-" or \$msg contains "Starting User Slice of" or \$msg contains "Removed session" or \$msg contains "Removed slice User Slice of" or \$msg contains "Stopping User Slice of") then stop
 EOL
