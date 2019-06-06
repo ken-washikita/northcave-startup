@@ -19,6 +19,7 @@ syntax off
 set ai
 map g 1G
 map q :e#
+set cpo-=%
 set notitle
 set tabstop=4
 set shiftwidth=4
