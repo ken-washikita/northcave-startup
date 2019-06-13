@@ -7,7 +7,7 @@ yum -y install wget yum-utils python-inotify || exit 1
 sed -i 's/ja_JP/en_US/' /etc/locale.conf
 
 # PAM
-sed -i 's/^UsePAM no/UsePAM yes/' /etc/ssh/sshd_config
+sed -i '/^UsePAM no/s/no/yes/' /etc/ssh/sshd_config
 
 # logrotate
 sed -i '/^rotate 4$/s/4/10/' /etc/logrotate.conf
