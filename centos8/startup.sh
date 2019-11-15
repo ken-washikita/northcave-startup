@@ -38,9 +38,9 @@ sed -i '/^map q/s/$/\r/' /root/.vimrc
 ln -s /root/.vimrc /root/.virc
 
 # fail2ban nftables
-cat <<EOL >>/etc/fail2ban/jail.d/local.conf
-banaction = nftables-multiport
-banaction_allports = nftables-allports
+sed -i '/\[sshd\]/a mode = aggressive\
+banaction = nftables-multiport\
+banaction_allports = nftables-allports' /etc/fail2ban/jail.d/local.conf
 EOL
 
 # fail2ban blacklist
