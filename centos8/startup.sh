@@ -59,6 +59,6 @@ findtime = 31536000   ; 1 year
 maxretry = 10
 EOL
 touch /etc/fail2ban/ip.blacklist
-systemctl reload fail2ban
+systemctl restart fail2ban
 
 # end
