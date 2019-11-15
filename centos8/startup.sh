@@ -13,8 +13,9 @@ sed -i '/^UsePAM no/s/no/yes/' /etc/ssh/sshd_config
 sed -i '/^rotate 4$/s/4/10/' /etc/logrotate.conf
 
 # nftables
-sed -i '/inet-filter\.net/s/^# //' /etc/sysconfig/nftables.conf
+sed -i '/inet-filter\.nft/s/^# //' /etc/sysconfig/nftables.conf
 systemctl enable nftables
+systemctl start nftables
 
 # vi
 cat <<EOL >/root/.vimrc
@@ -58,5 +59,6 @@ findtime = 31536000   ; 1 year
 maxretry = 10
 EOL
 touch /etc/fail2ban/ip.blacklist
+systemctl reload fail2ban
 
 # end
