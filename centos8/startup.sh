@@ -35,13 +35,11 @@ set history=50
 set more
 EOL
 sed -i '/^map q/s/$/\r/' /root/.vimrc
-ln -s /root/.vimrc /root/.virc
 
 # fail2ban nftables
 sed -i '/\[sshd\]/a mode = aggressive\
 banaction = nftables-multiport\
 banaction_allports = nftables-allports' /etc/fail2ban/jail.d/local.conf
-EOL
 
 # fail2ban blacklist
 curl -L https://raw.githubusercontent.com/mitchellkrogza/Fail2Ban-Blacklist-JAIL-for-Repeat-Offenders-with-Perma-Extended-Banning/master/filter.d/blacklist.conf > /etc/fail2ban/filter.d/blacklist.conf
