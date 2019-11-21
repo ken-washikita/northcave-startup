@@ -35,6 +35,7 @@ set history=50
 set more
 EOL
 sed -i '/^map q/s/$/\r/' /root/.vimrc
+ln -s /root/.vimrc /root/.virc
 
 # fail2ban nftables
 sed -i '/\[sshd\]/a mode = aggressive\
