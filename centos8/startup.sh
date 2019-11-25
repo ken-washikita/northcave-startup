@@ -60,4 +60,9 @@ EOL
 touch /etc/fail2ban/ip.blacklist
 systemctl restart fail2ban
 
+# td-agent
+curl -L https://toolbelt.treasuredata.com/sh/install-redhat-td-agent3.sh | sh
+# systemctl enable td-agent
+# systemctl start td-agent
+
 # end
