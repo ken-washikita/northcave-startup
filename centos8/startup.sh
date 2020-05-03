@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install packages
-dnf -y install dnf-utils python3-inotify || exit 1
+dnf -y install dnf-utils python3-inotify
 
 # locale
 sed -i 's/ja_JP/en_US/' /etc/locale.conf
