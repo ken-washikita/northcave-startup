@@ -29,4 +29,12 @@ EOL
 sed -i '/^map q/s/$/\r/' /root/.vimrc
 ln -s /root/.vimrc /root/.virc
 
+# disable ipv6
+cat <<EOL >>/etc/sysctl.conf
+
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+EOL
+sysctl -p
+
 # end
